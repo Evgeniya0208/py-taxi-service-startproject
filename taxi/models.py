@@ -1,7 +1,6 @@
+from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.db import models
-
-from taxi_service import settings
 
 
 # Create your models here.
@@ -10,7 +9,7 @@ class Manufacturer(models.Model):
     country = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.name}: {self.country}"
+        return {self.name}
 
 
 class Driver(AbstractUser):
@@ -25,4 +24,4 @@ class Car(models.Model):
     )
 
     def __str__(self):
-        return f"{self.model}: {self.manufacturer.name}"
+        return {self.model}
